@@ -103,7 +103,7 @@ Throughout the development of the Laptop Price Estimator, several technical and 
 | **1. Feature engineering required deep inspection** — Derived features like PPI, binary conversions (Touchscreen, IPS), and weight cleanup were not immediately obvious. | Carefully engineered features with domain logic (e.g., calculating PPI from resolution, converting weights to floats), significantly boosting model accuracy. |
 | **2. Model failed without pipeline and standardization** — Error like `'Microsoft' is a string, failed to convert to float` occurred during training. | Built a full preprocessing pipeline using `ColumnTransformer` to handle categorical encoding and numerical scaling before feeding into models. |
 | **3. Inconsistent preprocessing across models** — Initially, models applied preprocessing inconsistently, causing unstable results. | Standardized all preprocessing steps into a unified `Pipeline`, ensuring every model received identical transformed input. |
-| **4. Dataset is not recent** — Prices reflect pre-2024 market and do not account for recent hardware trends or inflation. | ❌ Not resolved. A more recent dataset would be needed to capture post-2024 price hikes and newer laptop configurations. |
+| **4. Dataset is not recent** — Prices reflect pre-2021 market and do not account for recent hardware trends or inflation. | ❌ Not resolved. A more recent dataset would be needed to capture post-2021 price hikes and newer laptop configurations. |
 | **5. Mixed data types in DataFrame** caused **Arrow serialization warnings** in Streamlit UI. | Applied type casting (e.g., converting all display fields to string) to ensure compatibility with Streamlit’s DataFrame display engine. |
 
 ## 📝 Closing Thoughts
